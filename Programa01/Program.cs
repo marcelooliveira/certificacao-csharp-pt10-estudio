@@ -16,23 +16,17 @@ namespace Programa01
             Relatorio relatorio = new Relatorio();
             relatorio.Imprimir();
 
+            Console.WriteLine();
+            if (Attribute.IsDefined(typeof(Venda), typeof(SerializableAttribute)))
+            {
+                Console.WriteLine("Venda pode ser serializada.");
+            }
+            else
+            {
+                Console.WriteLine("Venda NÃO pode ser serializada.");
+            }
+
             Console.ReadKey();
-        }
-    }
-
-    [Serializable]
-    class Pessoa
-    {
-        public string nome;
-        public int idade;
-        [NonSerialized]
-        private int filhos;
-
-        public Pessoa(string nome, int idade)
-        {
-            this.nome = nome;
-            this.idade = idade;
-            this.filhos = 0;
         }
     }
 

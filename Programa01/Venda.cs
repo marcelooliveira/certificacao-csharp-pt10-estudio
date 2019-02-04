@@ -1,21 +1,23 @@
-﻿#define RELATORIO_DETALHADO
-//#define RELATORIO_RESUMIDO
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Programa01
 {
+    [Serializable]
     public class Venda
     {
-        public string Data { get; set; }
-        public string Produto { get; set; }
-        public int Preco { get; set; }
-        public string TipoPagamento { get; set; }
-        public string Nome { get; set; }
-        public string Cidade { get; set; }
-        public string Estado { get; set; }
-        public string Pais { get; set; }
-        public string DataCriacao { get; set; }
-        public string UltimoLogin { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public string Data;
+        public string Produto;
+        public int Preco;
+        public string TipoPagamento;
+        [NonSerialized]
+        public string Nome;
+        public string Cidade;
+        public string Estado;
+        public string Pais;
+        public string DataCriacao;
+        public string UltimoLogin;
+        public double Latitude;
+        public double Longitude;
     }
 }
