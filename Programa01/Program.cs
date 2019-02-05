@@ -58,9 +58,11 @@ namespace Programa01
         {
             Console.WriteLine("Data          Produto         Preco       TipoPagamento Nome                  Cidade                Região                Pais");
             Console.WriteLine("==========================================================================================================================================");
+
             foreach (var venda in vendas)
             {
-                Console.WriteLine($"{venda.Data,-12}  {venda.Produto,-12}  {venda.Preco,12:C}  {venda.TipoPagamento,-12:C}  {venda.Nome,-20:C}  {venda.Cidade,-20:C}  {venda.Estado,-20:C}  {venda.Pais,-20:C}");
+                Console.WriteLine("{0}  {1}  {2}  {3}  {4}  {5}  {6}  {7}"
+                            , venda.Data, venda.Produto, venda.Preco, venda.TipoPagamento, venda.Nome, venda.Cidade, venda.Estado, venda.Pais);
             }
         }
 
@@ -69,10 +71,33 @@ namespace Programa01
         {
             Console.WriteLine("Data          Produto         Preco       TipoPagamento   ");
             Console.WriteLine("==========================================================");
+
+            
             foreach (var venda in vendas)
             {
-                Console.WriteLine($"{venda.Data,-12}  {venda.Produto,-12}  {venda.Preco,12:C}  {venda.TipoPagamento,-12:C}");
+                Console.WriteLine("{0}  {1}  {2}  {3}"
+                    , venda.Data, venda.Produto, venda.Preco, venda.TipoPagamento);
             }
+        }
+    }
+
+    class FormatoReduzidoAttribute : Attribute
+    {
+        public string Formato { get; }
+
+        public FormatoReduzidoAttribute(string formato)
+        {
+            this.Formato = formato;
+        }
+    }
+
+    class FormatoDetalhadoAttribute : Attribute
+    {
+        public string Formato { get; }
+
+        public FormatoDetalhadoAttribute(string formato)
+        {
+            this.Formato = formato;
         }
     }
 }
