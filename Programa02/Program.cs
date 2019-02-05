@@ -12,17 +12,16 @@ namespace Programa02
             Relatorio relatorio = new Relatorio("Relatório de Vendas");
             relatorio.Imprimir();
 
-            Console.WriteLine();
             if (Attribute.IsDefined(typeof(Venda), typeof(SerializableAttribute)))
             {
-                Console.WriteLine("Venda pode ser serializada.");
+                Console.WriteLine("A classe Venda DEFINE o atributo Serializable");
             }
             else
             {
-                Console.WriteLine("Venda NÃO pode ser serializada.");
+                Console.WriteLine("A classe Venda NÃO DEFINE o atributo Serializable");
             }
 
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }

@@ -57,8 +57,8 @@ namespace Programa03
             Console.WriteLine("Data          Produto         Preco       TipoPagamento   ");
             Console.WriteLine("==========================================================");
 
-            Attribute a = Attribute.GetCustomAttribute(typeof(Venda), typeof(FormatoReduzidoAttribute));
-            FormatoReduzidoAttribute formatoReduzido = (FormatoReduzidoAttribute)a;
+            Attribute a = Attribute.GetCustomAttribute(typeof(Venda), typeof(FormatoResumidoAttribute));
+            FormatoResumidoAttribute formatoReduzido = (FormatoResumidoAttribute)a;
 
             foreach (var venda in vendas)
             {

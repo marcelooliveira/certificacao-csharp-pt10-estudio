@@ -8,6 +8,12 @@ using System.IO;
 
 namespace Programa02
 {
+    interface IRelatorio
+    {
+        string Nome { get; set; }
+        void Imprimir();
+    }
+
     class Relatorio : IRelatorio
     {
         public string Nome { get; set; }
@@ -57,8 +63,8 @@ namespace Programa02
             Console.WriteLine("Data          Produto         Preco       TipoPagamento   ");
             Console.WriteLine("==========================================================");
 
-            Attribute a = Attribute.GetCustomAttribute(typeof(Venda), typeof(FormatoReduzidoAttribute));
-            FormatoReduzidoAttribute formatoReduzido = (FormatoReduzidoAttribute)a;
+            Attribute a = Attribute.GetCustomAttribute(typeof(Venda), typeof(FormatoResumidoAttribute));
+            FormatoResumidoAttribute formatoReduzido = (FormatoResumidoAttribute)a;
 
             foreach (var venda in vendas)
             {

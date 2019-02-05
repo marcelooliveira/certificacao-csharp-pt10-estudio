@@ -75,7 +75,7 @@ namespace Programa03
                 Console.WriteLine("Venda NÃO pode ser serializada.");
             }
 
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }
