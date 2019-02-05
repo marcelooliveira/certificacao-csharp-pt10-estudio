@@ -1,13 +1,16 @@
-﻿//#define RELATORIO_DETALHADO
-#define RELATORIO_RESUMIDO
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 
 namespace Programa01
 {
+    interface IRelatorio
+    {
+        string Nome { get; set; }
+        void Imprimir();
+    }
+
     class Relatorio : IRelatorio
     {
         public string Nome { get; set; }
@@ -27,14 +30,12 @@ namespace Programa01
             Console.WriteLine();
         }
 
-        [Conditional("RELATORIO_DETALHADO"), Conditional("RELATORIO_RESUMIDO")]
         void Cabecalho()
         {
             Console.WriteLine(this.Nome);
             Console.WriteLine("=============================");
         }
 
-        [Conditional("RELATORIO_DETALHADO")]
         void ListagemDetalhada()
         {
             Console.WriteLine("Data          Produto         Preco       TipoPagamento Nome                  Cidade                Região                Pais");
@@ -47,7 +48,6 @@ namespace Programa01
             }
         }
 
-        [Conditional("RELATORIO_RESUMIDO")]
         void ListagemResumida()
         {
             Console.WriteLine("Data          Produto         Preco       TipoPagamento   ");
