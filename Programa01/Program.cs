@@ -18,7 +18,7 @@ namespace Programa01
 
             //TAREFA 4: Definir na classe Venda os formatos de impressão detalhada e resumida
 
-            Console.ReadKey();
+            Console.ReadLine();
         }
     }
 }
