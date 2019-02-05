@@ -1,6 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿//#define RELATORIO_RESUMIDO
+#define RELATORIO_DETALHADO
+
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace Programa01
@@ -25,17 +29,24 @@ namespace Programa01
         public void Imprimir()
         {
             Cabecalho();
+//#if RELATORIO_RESUMIDO
             ListagemResumida();
+//#endif
+//#if RELATORIO_DETALHADO
             ListagemDetalhada();
+//#endif
             Console.WriteLine();
         }
 
+        [Conditional("RELATORIO_RESUMIDO"),
+            Conditional("RELATORIO_DETALHADO")]
         void Cabecalho()
         {
             Console.WriteLine(this.Nome);
             Console.WriteLine("=============================");
         }
 
+        [Conditional("RELATORIO_DETALHADO")]
         void ListagemDetalhada()
         {
             Console.WriteLine("Data          Produto         Preco       TipoPagamento Nome                  Cidade                Região                Pais");
@@ -49,6 +60,7 @@ namespace Programa01
             Console.WriteLine();
         }
 
+        [Conditional("RELATORIO_RESUMIDO")]
         void ListagemResumida()
         {
             Console.WriteLine("Data          Produto         Preco       TipoPagamento   ");
