@@ -8,6 +8,12 @@ using System.IO;
 
 namespace Programa03
 {
+    interface IRelatorio
+    {
+        string Nome { get; set; }
+        void Imprimir();
+    }
+
     class Relatorio : IRelatorio
     {
         public string Nome { get; set; }
