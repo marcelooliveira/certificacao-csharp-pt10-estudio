@@ -16,6 +16,8 @@ namespace Programa01
 
             //TAREFA 3: Impedir a serialização do campo nome do comprador
 
+            //TAREFA 4: Definir na classe Venda os formatos de impressão detalhada e resumida
+
             Console.ReadKey();
         }
     }
