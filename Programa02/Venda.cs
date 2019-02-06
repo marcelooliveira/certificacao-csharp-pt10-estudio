@@ -4,8 +4,8 @@ using System;
 namespace Programa02
 {
     [Serializable]
-    [FormatoResumido("{0,-12}  {1,-12}  {2,12:C}  {3,-12:C}")]
-    [FormatoDetalhado("{0,-12}  {1,-12}  {2,12:C}  {3,-12:C}  {4,-20:C}  {5,-20:C}  {6,-20:C}  {7,-20:C}")]
+    [FormatoResumido("{0}  {1}  {2}  {3}")]
+    [FormatoDetalhado("{0}  {1}  {2}  {3}  {4}  {5}  {6}  {7}")]
     public class Venda
     {
         public string Data;

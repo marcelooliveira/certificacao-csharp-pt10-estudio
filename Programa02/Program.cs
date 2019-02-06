@@ -1,14 +1,14 @@
-﻿//#define RELATORIO_DETALHADO
-#define RELATORIO_RESUMIDO
-using System;
+﻿using System;
 
 namespace Programa02
 {
-    //Ler atributos
     class Program
     {
         static void Main(string[] args)
         {
+            //Tarefa: Ler os atributos de formato 
+            //de impressão da classe Venda
+
             Relatorio relatorio = new Relatorio("Relatório de Vendas");
             relatorio.Imprimir();
 
