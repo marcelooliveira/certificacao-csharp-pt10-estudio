@@ -24,17 +24,29 @@ namespace Programa04
             classe.IsClass = true;
             classe.TypeAttributes = System.Reflection.TypeAttributes.Public;
 
+
             //cria o campo nome
             CodeMemberField campoNome = new CodeMemberField(typeof(string), "nome");
+            campoNome.Attributes = MemberAttributes.Public;
 
             //adiciona o campo à classe
             classe.Members.Add(campoNome);
 
             //cria o campo salário
             CodeMemberField campoSalario = new CodeMemberField(typeof(decimal), "salario");
+            campoSalario.Attributes = MemberAttributes.Public;
 
             //adiciona o campo à classe
             classe.Members.Add(campoSalario);
+
+            //cria o construtor da classe
+            CodeConstructor constructor = new CodeConstructor();
+            constructor.Attributes = MemberAttributes.Public;
+            constructor.Parameters.Add(new CodeParameterDeclarationExpression(typeof(string), "nome"));
+            constructor.Parameters.Add(new CodeParameterDeclarationExpression(typeof(decimal), "salario"));
+
+            //adiciona o construtor à classe
+            classe.Members.Add(constructor);
 
             //adiciona classe ao namespace
             nameSpace.Types.Add(classe);
