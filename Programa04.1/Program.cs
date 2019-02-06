@@ -29,10 +29,9 @@ namespace Programa04._1
 
             Console.WriteLine();
 
-            MultiplyToAdd m = new MultiplyToAdd();
+            TrocaDividirPorMultiplicar m = new TrocaDividirPorMultiplicar();
 
-
-            Expression<Func<float, float>> dobro = (Expression<Func<float, float>>)m.Modify(metade);
+            Expression<Func<float, float>> dobro = (Expression<Func<float, float>>)m.Modificar(metade);
 
             // Compila a árvore e a atribui a um delegado
             Func<float, float> calculaDobro = dobro.Compile();
@@ -43,9 +42,9 @@ namespace Programa04._1
         }
     }
 
-    public class MultiplyToAdd : ExpressionVisitor
+    public class TrocaDividirPorMultiplicar : ExpressionVisitor
     {
-        public Expression Modify(Expression expression)
+        public Expression Modificar(Expression expression)
         {
             return Visit(expression);
         }
