@@ -62,7 +62,20 @@ namespace Programa03
             Console.WriteLine("QUE IMPLEMENTAM A INTERFACE IRelatorio");
             Console.WriteLine("======================================");
 
+            Assembly esteAssembly = Assembly.GetExecutingAssembly();
+            var tipos = esteAssembly.GetTypes();
+            foreach (var tipoAssembly in tipos)
+            {
+                if (tipoAssembly.IsInterface)
+                {
+                    continue;
+                }
 
+                if (typeof(IRelatorio).IsAssignableFrom(tipoAssembly))
+                {
+                    Console.WriteLine(tipoAssembly);
+                }
+            }
 
 
             //TAREFA 5: 
@@ -70,6 +83,16 @@ namespace Programa03
             Console.WriteLine("USANDO LINQ PARA VER TIPOS DO ASSEMBLY");
             Console.WriteLine("QUE IMPLEMENTAM A INTERFACE IRelatorio");
             Console.WriteLine("======================================");
+
+            var consulta = from t in tipos
+                           where typeof(IRelatorio).IsAssignableFrom(t)
+                            && !t.IsInterface
+                           select t;
+
+            foreach (var tipoConsulta in consulta)
+            {
+                Console.WriteLine(tipoConsulta.ToString());
+            }
 
             Console.ReadLine();
         }
