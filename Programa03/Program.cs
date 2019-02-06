@@ -30,24 +30,31 @@ namespace Programa03
             Console.WriteLine("OBTENDO O TIPO DO RELATÓRIO");
             Console.WriteLine("===========================");
 
-
-
+            Type tipo = relatorio.GetType();
+            Console.WriteLine(tipo);
 
             //TAREFA 2: 
             Console.WriteLine();
             Console.WriteLine("OBTENDO OS MEMBROS DO RELATÓRIO");
             Console.WriteLine("===============================");
-                       
 
-
-
+            MemberInfo[] membros = tipo.GetMembers();
+            foreach (var membro in membros)
+            {
+                Console.WriteLine(membro.ToString());
+            }
+            
             //TAREFA 3: 
             Console.WriteLine();
             Console.WriteLine("MODIFICANDO NOME VIA REFLECTION");
             Console.WriteLine("===============================");
 
+            relatorio.Nome = "NOME MODIFICADO!";
+            relatorio.Imprimir();
 
-
+            MethodInfo methodInfo = tipo.GetMethod("set_Nome");
+            methodInfo.Invoke(relatorio, new object[] { "NOME MODIFICADO VIA REFLECTION!" });
+            relatorio.Imprimir();
 
             //TAREFA 4: 
             Console.WriteLine();
