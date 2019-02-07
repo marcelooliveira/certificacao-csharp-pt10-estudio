@@ -32,7 +32,32 @@ namespace Programa04._1
             var metadeCompilada = exprMetade.Compile();
             Console.WriteLine("Metade de 7 é {0}", metadeCompilada(7));
 
+            //4) Modificar a árvore de expressões
+            TrocarDivisaoPorMultiplicacao troca = new TrocarDivisaoPorMultiplicacao();
+            Expression<Func<float, float>> exprDobro
+                = (Expression<Func<float, float>>)troca.Modificar(exprMetade);
+            var dobroCompilado = exprDobro.Compile();
+            Console.WriteLine("Dobro de 15 é {0}", dobroCompilado(15));
+
             Console.ReadLine();
+        }
+    }
+
+    class TrocarDivisaoPorMultiplicacao : ExpressionVisitor
+    {
+        public Expression Modificar(Expression expression)
+        {
+            return Visit(expression);
+        }
+
+        protected override Expression VisitBinary(BinaryExpression node)
+        {
+            if (node.NodeType == ExpressionType.Divide)
+            {
+                return Expression.Multiply(node.Left, node.Right);
+            }
+
+            return base.VisitBinary(node);
         }
     }
 }
