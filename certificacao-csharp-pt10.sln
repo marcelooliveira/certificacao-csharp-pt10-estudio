@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item03 - Usar reflection", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item04 - Geração de código", "Item04 - Geração de código", "{EBFB58AB-647B-4625-B54D-1E9376324326}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item05", "Item05", "{B28CC3C5-E3A1-4C96-BC7C-89CE671C0F78}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item05 - Tipos do System.Reflection", "Item05 - Tipos do System.Reflection", "{B28CC3C5-E3A1-4C96-BC7C-89CE671C0F78}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Programa02", "Programa02\Programa02.csproj", "{57D136EE-984B-4E6F-8E8A-0FA371246BB2}"
 EndProject
