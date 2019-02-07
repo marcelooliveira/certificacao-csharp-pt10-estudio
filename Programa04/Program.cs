@@ -1,4 +1,6 @@
 ﻿using System;
+using System.CodeDom;
+using System.CodeDom.Compiler;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -31,8 +33,10 @@ namespace Programa04
             */
 
             //Tarefa 1: criar uma unidade de compilação
+            CodeCompileUnit unit = new CodeCompileUnit();
 
             //Tarefa 2: criar o namespace RecursosHumanos
+            CodeNamespace codeNamespace = new CodeNamespace("RecursosHumanos");
 
             //Tarefa 2.1: importar o namespace System
             //Tarefa 2.2: criar a classe Funcionario
@@ -40,9 +44,18 @@ namespace Programa04
             //Tarefa 2.4: criar o campo salário
             //Tarefa 2.5: criar o construtor da classe
 
+            unit.Namespaces.Add(codeNamespace);
+
             //Tarefa 3: cria o provedor de modelo de código
+            CodeDomProvider provider = CodeDomProvider.CreateProvider("CSharp");
 
             //Tarefa 4: gerar código e salva o arquivo
+            using (var streamWriter = new StreamWriter("Funcionario.cs"))
+            {
+                provider.GenerateCodeFromCompileUnit(unit, streamWriter,
+                    new CodeGeneratorOptions());
+            }
+
         }
     }
 }
