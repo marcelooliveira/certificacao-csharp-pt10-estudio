@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2050
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item01", "Item01", "{EAE77BC2-F085-4BBA-AE99-D34EC1DED3EA}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item01 - Criar e aplicar atributos", "Item01 - Criar e aplicar atributos", "{EAE77BC2-F085-4BBA-AE99-D34EC1DED3EA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Programa01", "Programa01\Programa01.csproj", "{1A42B06D-AFD6-41EB-A044-D87ABCA63004}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item02", "Item02", "{AEA4BC03-1EDD-4C66-8A35-6201E407D86F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item02 - Ler os atributos", "Item02 - Ler os atributos", "{AEA4BC03-1EDD-4C66-8A35-6201E407D86F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item03", "Item03", "{A643EB71-F95A-4C69-A653-2537D1769911}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item03 - Usar reflection", "Item03 - Usar reflection", "{A643EB71-F95A-4C69-A653-2537D1769911}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item04", "Item04", "{EBFB58AB-647B-4625-B54D-1E9376324326}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item04 - Geração de código", "Item04 - Geração de código", "{EBFB58AB-647B-4625-B54D-1E9376324326}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item05", "Item05", "{B28CC3C5-E3A1-4C96-BC7C-89CE671C0F78}"
 EndProject
