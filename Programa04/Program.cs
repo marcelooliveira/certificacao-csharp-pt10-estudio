@@ -39,11 +39,26 @@ namespace Programa04
             CodeNamespace codeNamespace = new CodeNamespace("RecursosHumanos");
 
             //Tarefa 2.1: importar o namespace System
+            CodeNamespaceImport import = new CodeNamespaceImport("System");
+            codeNamespace.Imports.Add(import);
+
             //Tarefa 2.2: criar a classe Funcionario
+            CodeTypeDeclaration funcionario = new CodeTypeDeclaration("Funcionario");
+
             //Tarefa 2.3: criar o campo nome
+            CodeMemberField nome = new CodeMemberField(typeof(string), "nome");
+            nome.Attributes = MemberAttributes.Public;
+            funcionario.Members.Add(nome);
+
             //Tarefa 2.4: criar o campo salário
+            CodeMemberField salario = new CodeMemberField(typeof(decimal), "salario");
+            salario.Attributes = MemberAttributes.Public;
+            funcionario.Members.Add(salario);
+
+
             //Tarefa 2.5: criar o construtor da classe
 
+            codeNamespace.Types.Add(funcionario);
             unit.Namespaces.Add(codeNamespace);
 
             //Tarefa 3: cria o provedor de modelo de código
