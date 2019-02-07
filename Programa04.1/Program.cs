@@ -7,58 +7,13 @@ namespace Programa04._1
     {
         static void Main(string[] args)
         {
-            // constrói a árvore de expressão:
-            //================================
+            Func<float, float> metade = quo => quo / 2;
+            Console.WriteLine("Metade de 9 é {0}", metade(9));
 
-            // Expression<Func<int,float>> metade = quo => quo / 2;
-            ParameterExpression quociente = Expression.Parameter(typeof(float), "quo");
-            ConstantExpression divisor = Expression.Constant(2f, typeof(float));
-
-            // operação de divisão pela metade
-            BinaryExpression opMetade = Expression.Divide(quociente, divisor);
-
-            // Cria a árvore de expressão
-            Expression<Func<float, float>> metade =
-                Expression.Lambda<Func<float, float>>(opMetade,
-                        new ParameterExpression[] { quociente });
-
-            // Compila a árvore e a atribui a um delegado
-            Func<float, float> calculaMetade = metade.Compile();
-
-            Console.WriteLine("Metade de 9 é {0}", calculaMetade(9));
-
-            Console.WriteLine();
-
-            TrocaDividirPorMultiplicar m = new TrocaDividirPorMultiplicar();
-
-            Expression<Func<float, float>> dobro = (Expression<Func<float, float>>)m.Modificar(metade);
-
-            // Compila a árvore e a atribui a um delegado
-            Func<float, float> calculaDobro = dobro.Compile();
-
-            Console.WriteLine("Dobro de 9 é {0}", calculaDobro(9));
+            //TAREFA: Recriar a Função acima, 
+            //porém usando árvore de expressões LINQ
 
             Console.ReadLine();
-        }
-    }
-
-    public class TrocaDividirPorMultiplicar : ExpressionVisitor
-    {
-        public Expression Modificar(Expression expression)
-        {
-            return Visit(expression);
-        }
-        protected override Expression VisitBinary(BinaryExpression b)
-        {
-            if (b.NodeType == ExpressionType.Divide)
-            {
-                Expression left = this.Visit(b.Left);
-                Expression right = this.Visit(b.Right);
-
-                //Muda a expressão para multiplicar em vez de dividir.
-                return Expression.Multiply(left, right);
-            }
-            return base.VisitBinary(b);
         }
     }
 }
