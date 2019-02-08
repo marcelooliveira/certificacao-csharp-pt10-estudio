@@ -1,6 +1,4 @@
-﻿using Programa05_1.Modelo;
-using System;
-using System.Reflection;
+﻿using System;
 
 namespace Programa05
 {
