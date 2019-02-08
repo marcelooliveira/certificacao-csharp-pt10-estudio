@@ -23,24 +23,24 @@ namespace Programa05
             Trace.WriteLine($"Está no Global Assembly Cache? {assembly.GlobalAssemblyCache}");
 
             //Tarefa 4: descobrir todos os módulos, tipos e membros do assembly
+            Trace.Indent();
             foreach (Module modulo in assembly.Modules)
             {
-                Trace.Indent();
                 Trace.WriteLine($"Módulo: {modulo.Name}");
+                Trace.Indent();
                 foreach (Type tipoModulo in modulo.GetTypes())
                 {
-                    Trace.Indent();
                     Trace.WriteLine($"Tipo: {tipoModulo.Name}");
+                    Trace.Indent();
                     foreach (MemberInfo membro in tipoModulo.GetMembers())
                     {
-                        Trace.Indent();
                         Trace.WriteLine($"Membro: {membro.Name} ({membro.MemberType})");
-                        Trace.Unindent();
                     }
                     Trace.Unindent();
                 }
                 Trace.Unindent();
             }
+            Trace.Unindent();
 
             Console.ReadKey();
         }
